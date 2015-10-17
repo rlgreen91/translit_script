@@ -1,5 +1,5 @@
 class TranslitApp
-	def call env
-		[200, {"Content-Type" => "text/html"}, ["Working correctly"]]
+	def self.call(env)
+		[200, {"Content-Type" => "text/plain"}, ["Working correctly"]]
 	end
 end
