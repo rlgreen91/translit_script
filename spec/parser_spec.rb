@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-require_relative '../input_parser'
+require_relative '../lib/input_parser'
 
 RSpec.describe "test parser input type" do 
 	before(:all) do
