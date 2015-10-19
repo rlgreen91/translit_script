@@ -40,4 +40,11 @@ RSpec.describe "test vowels" do
 		end
 	end
 
+	context "multiple vowels" do
+		it "parses successfully" do
+			expect(@string_input.parse('ua').to_s).to eq('[{:u=>"u"@0}, {:a=>"a"@1}]')
+			expect(@string_input.parse('oi').to_s).to eq('[{:o=>"o"@0}, {:i=>"i"@1}]')
+		end
+	end
+
 end
