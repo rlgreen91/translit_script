@@ -46,5 +46,21 @@ RSpec.describe "test vowels" do
 			expect(@string_input.parse('oi').to_s).to eq('[{:o=>"o"@0}, {:i=>"i"@1}]')
 		end
 	end
+end
 
+#test for parsing single sounds starting with consonants, expect for nn
+RSpec.describe "test single consonants" do
+	before(:all) do
+		@string_input = InputParser.new
+	end
+
+	context "k sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('ka').to_s).to eq('[{:ka=>"ka"@0}]')
+			expect(@string_input.parse('ki').to_s).to eq('[{:ki=>"ki"@0}]')
+			expect(@string_input.parse('ku').to_s).to eq('[{:ku=>"ku"@0}]')
+			expect(@string_input.parse('ke').to_s).to eq('[{:ke=>"ke"@0}]')
+			expect(@string_input.parse('ko').to_s).to eq('[{:ko=>"ko"@0}]')
+		end
+	end
 end

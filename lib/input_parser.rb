@@ -13,11 +13,22 @@ class InputParser < Parslet::Parser
 	rule(:e) { match('e') }
 	rule(:o) { match('o') }
 
+	#check for consonants
+	rule(:k) { match('k') }
+
+	#check for k sounds
+	rule(:ka) { k >> a }
+	rule(:ki) { k >> i }
+	rule(:ku) { k >> u }
+	rule(:ke) { k >> e }
+	rule(:ko) { k >> o }
+	rule(:k_sounds) { ka.as(:ka) | ki.as(:ki) | ku.as(:ku) | ke.as(:ke) | ko.as(:ko) }
+
 	rule(:vowel) { ( a.as(:a) | i.as(:i) | u.as(:u) | e.as(:e) | o.as(:o) ).repeat(1) }
 
 	#Parse expression
 	#check for vowels
-	rule(:expression) { vowel }
+	rule(:expression) { ( vowel | k_sounds ).repeat(1) }
 	root :expression
 end
 
