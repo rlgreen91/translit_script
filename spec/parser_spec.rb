@@ -48,7 +48,7 @@ RSpec.describe "test vowels" do
 	end
 end
 
-#test for parsing single sounds starting with consonants, expect for nn
+#test for parsing single sounds starting with consonants
 RSpec.describe "test single consonants" do
 	before(:all) do
 		@string_input = InputParser.new
@@ -61,6 +61,16 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('ku').to_s).to eq('[{:ku=>"ku"@0}]')
 			expect(@string_input.parse('ke').to_s).to eq('[{:ke=>"ke"@0}]')
 			expect(@string_input.parse('ko').to_s).to eq('[{:ko=>"ko"@0}]')
+		end
+	end
+
+	context "g sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('ga').to_s).to eq('[{:ga=>"ga"@0}]')
+			expect(@string_input.parse('gi').to_s).to eq('[{:gi=>"gi"@0}]')
+			expect(@string_input.parse('gu').to_s).to eq('[{:gu=>"gu"@0}]')
+			expect(@string_input.parse('ge').to_s).to eq('[{:ge=>"ge"@0}]')
+			expect(@string_input.parse('go').to_s).to eq('[{:go=>"go"@0}]')
 		end
 	end
 end
