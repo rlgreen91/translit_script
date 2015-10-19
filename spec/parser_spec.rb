@@ -1,6 +1,7 @@
 require_relative 'spec_helper'
 require_relative '../lib/input_parser'
 
+#test for checks for input - context describes type of parser input
 RSpec.describe "test parser input type" do 
 	before(:all) do
 		@string_input = InputParser.new
@@ -23,6 +24,7 @@ RSpec.describe "test parser input type" do
 	end
 end
 
+#test for parsing one vowel and vowels in combination
 RSpec.describe "test vowels" do
 	before(:all) do
 		@string_input = InputParser.new
@@ -30,8 +32,11 @@ RSpec.describe "test vowels" do
 
 	context "only one vowel" do
 		it "parses succesfully" do
-			expected = '[{:a=>"a"@0}]'
-			expect(@string_input.parse('a').to_s).to eq(expected)
+			expect(@string_input.parse('a').to_s).to eq('[{:a=>"a"@0}]')
+			expect(@string_input.parse('i').to_s).to eq('[{:i=>"i"@0}]')
+			expect(@string_input.parse('u').to_s).to eq('[{:u=>"u"@0}]')
+			expect(@string_input.parse('e').to_s).to eq('[{:e=>"e"@0}]')
+			expect(@string_input.parse('o').to_s).to eq('[{:o=>"o"@0}]')
 		end
 	end
 
