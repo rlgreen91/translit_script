@@ -31,7 +31,7 @@ RSpec.describe "test vowels" do
 	end
 
 	context "only one vowel" do
-		it "parses succesfully" do
+		it "parses successfully" do
 			expect(@string_input.parse('a').to_s).to eq('[{:a=>"a"@0}]')
 			expect(@string_input.parse('i').to_s).to eq('[{:i=>"i"@0}]')
 			expect(@string_input.parse('u').to_s).to eq('[{:u=>"u"@0}]')
@@ -71,6 +71,16 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('gu').to_s).to eq('[{:gu=>"gu"@0}]')
 			expect(@string_input.parse('ge').to_s).to eq('[{:ge=>"ge"@0}]')
 			expect(@string_input.parse('go').to_s).to eq('[{:go=>"go"@0}]')
+		end
+	end
+
+	context "s sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('sa').to_s).to eq('[{:sa=>"sa"@0}]')
+			expect(@string_input.parse('si').to_s).to eq('[{:shi=>"si"@0}]')
+			expect(@string_input.parse('su').to_s).to eq('[{:su=>"su"@0}]')
+			expect(@string_input.parse('se').to_s).to eq('[{:se=>"se"@0}]')
+			expect(@string_input.parse('so').to_s).to eq('[{:so=>"so"@0}]')
 		end
 	end
 end
