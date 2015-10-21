@@ -19,6 +19,7 @@ class InputParser < Parslet::Parser
 	rule(:s) { match('s') }
 	rule(:z) { match('z') }
 	rule(:t) { match('t') }
+	rule(:d) { match('d') }
 
 	#check for k sounds
 	rule(:ka) { k >> a }
@@ -58,13 +59,21 @@ class InputParser < Parslet::Parser
 	rule(:tu) { t >> u }
 	rule(:te) { t >> e }
 	rule(:to) { t >> o }
-	rule(:t_sounds) {ta.as(:ta) | ti.as(:chi) | tu.as(:tsu) | te.as(:te) | to.as(:to) }
+	rule(:t_sounds) { ta.as(:ta) | ti.as(:chi) | tu.as(:tsu) | te.as(:te) | to.as(:to) }
+
+	#check for d sounds
+	rule(:da) { d >> a }
+	rule(:di) { d >> i }
+	rule(:du) { d >> u }
+	rule(:de) { d >> e }
+	rule(:ado) { d >> o }
+	rule(:d_sounds) { da.as(:da) | di.as(:di) | du.as(:dzu) | de.as(:de) | ado.as(:ado) }
 
 	#check for sounds that consist of a single vowel
 	rule(:vowel) { ( a.as(:a) | i.as(:i) | u.as(:u) | e.as(:e) | o.as(:o) ).repeat(1) }
 
 	#check for sounds that begin with a consonant
-	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds ).repeat(1)}
+	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds ).repeat(1)}
 
 	#Parse expression
 	#check for vowels, then consonants
