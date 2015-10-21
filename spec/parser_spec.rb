@@ -113,4 +113,14 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('do').to_s).to eq('[{:ado=>"do"@0}]')
 		end
 	end
+
+	context "n sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('na').to_s).to eq('[{:na=>"na"@0}]')
+			expect(@string_input.parse('ni').to_s).to eq('[{:ni=>"ni"@0}]')
+			expect(@string_input.parse('nu').to_s).to eq('[{:nu=>"nu"@0}]')
+			expect(@string_input.parse('ne').to_s).to eq('[{:ne=>"ne"@0}]')
+			expect(@string_input.parse('no').to_s).to eq('[{:no=>"no"@0}]')
+		end
+	end
 end

@@ -20,6 +20,7 @@ class InputParser < Parslet::Parser
 	rule(:z) { match('z') }
 	rule(:t) { match('t') }
 	rule(:d) { match('d') }
+	rule(:n) { match('n') }
 
 	#check for k sounds
 	rule(:ka) { k >> a }
@@ -62,6 +63,7 @@ class InputParser < Parslet::Parser
 	rule(:t_sounds) { ta.as(:ta) | ti.as(:chi) | tu.as(:tsu) | te.as(:te) | to.as(:to) }
 
 	#check for d sounds
+	#ado represents do, which can't be used as it's a keyword in ruby
 	rule(:da) { d >> a }
 	rule(:di) { d >> i }
 	rule(:du) { d >> u }
@@ -69,11 +71,19 @@ class InputParser < Parslet::Parser
 	rule(:ado) { d >> o }
 	rule(:d_sounds) { da.as(:da) | di.as(:di) | du.as(:dzu) | de.as(:de) | ado.as(:ado) }
 
+	#check for n sounds
+	rule(:na) { n >> a }
+	rule(:ni) { n >> i }
+	rule(:nu) { n >> u }
+	rule(:ne) { n >> e }
+	rule(:no) { n >> o }
+	rule(:n_sounds) { na.as(:na) | ni.as(:ni) | nu.as(:nu) | ne.as(:ne) | no.as(:no) }
+
 	#check for sounds that consist of a single vowel
 	rule(:vowel) { ( a.as(:a) | i.as(:i) | u.as(:u) | e.as(:e) | o.as(:o) ).repeat(1) }
 
 	#check for sounds that begin with a consonant
-	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds ).repeat(1)}
+	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds | n_sounds ).repeat(1)}
 
 	#Parse expression
 	#check for vowels, then consonants
