@@ -161,4 +161,14 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('yo').to_s).to eq('[{:yo=>"yo"@0}]')
 		end
 	end
+
+	context "r sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('ra').to_s).to eq('[{:ra=>"ra"@0}]')
+			expect(@string_input.parse('ri').to_s).to eq('[{:ri=>"ri"@0}]')
+			expect(@string_input.parse('ru').to_s).to eq('[{:ru=>"ru"@0}]')
+			expect(@string_input.parse('re').to_s).to eq('[{:re=>"re"@0}]')
+			expect(@string_input.parse('ro').to_s).to eq('[{:ro=>"ro"@0}]')
+		end
+	end
 end
