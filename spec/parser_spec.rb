@@ -188,3 +188,19 @@ RSpec.describe "test single consonants" do
 		end
 	end
 end
+
+#test for parsing words
+RSpec.describe "test for complete words" do
+	before(:all) do
+		@string_input = InputParser.new
+	end
+
+	context "complete words of two letter sounds and vowels no double n" do
+		it "parses successfully" do
+			expect(@string_input.parse('kuruma').to_s).to eq('[{:ku=>"ku"@0}, {:ru=>"ru"@2}, {:ma=>"ma"@4}]')
+			expect(@string_input.parse('anata').to_s).to eq('[{:a=>"a"@0}, {:na=>"na"@1}, {:ta=>"ta"@3}]')
+			expect(@string_input.parse('oozei').to_s).to eq('[{:o=>"o"@0}, {:o=>"o"@1}, {:ze=>"ze"@2}, {:i=>"i"@4}]')
+			expect(@string_input.parse('jou').to_s).to eq('[{:jo=>"jo"@0}, {:u=>"u"@2}]')
+		end
+	end
+end
