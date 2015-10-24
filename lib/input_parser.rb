@@ -23,6 +23,7 @@ class InputParser < Parslet::Parser
 	rule(:n) { match('n') }
 	rule(:h) { match('h') }
 	rule(:b) { match('b') }
+	rule(:m) { match('m') }
 
 	#check for k sounds
 	rule(:ka) { k >> a }
@@ -97,11 +98,19 @@ class InputParser < Parslet::Parser
 	rule(:bo) { b >> o }
 	rule(:b_sounds) { ba.as(:ba) | bi.as(:bi) | bu.as(:bu) | be.as(:be) | bo.as(:bo) }
 
+	#check for m sounds
+	rule(:ma) { m >> a }
+	rule(:mi) { m >> i }
+	rule(:mu) { m >> u }
+	rule(:me) { m >> e }
+	rule(:mo) { m >> o }
+	rule(:m_sounds) { ma.as(:ma) | mi.as(:mi) | mu.as(:mu) | me.as(:me) | mo.as(:mo) }
+
 	#check for sounds that consist of a single vowel
 	rule(:vowel) { ( a.as(:a) | i.as(:i) | u.as(:u) | e.as(:e) | o.as(:o) ).repeat(1) }
 
 	#check for sounds that begin with a consonant
-	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds | n_sounds | h_sounds | b_sounds ).repeat(1)}
+	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds | n_sounds | h_sounds | b_sounds | m_sounds ).repeat(1)}
 
 	#Parse expression
 	#check for vowels, then consonants
