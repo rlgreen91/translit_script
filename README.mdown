@@ -1,0 +1,7 @@
+TranslitME is an app that transliterates text from one script to another.  
+
+[If you'd like to learn more about translieration, start here at Wikipedia.](https://en.wikipedia.org/wiki/Transliteration) 
+
+The first version of TranslitME will transliterate English into Japanese Hiragana.  The second version will add support for transliterating English into Japanese Katakana.
+
+If you'd like to provide feedback, please feel free to contact me at rlgreen91@gmail.com.  If you'd like to contribute, please feel free to fork this repository and get to work!  However, if you would like to add support for another language or script, please contact me before starting work.
