@@ -61,6 +61,7 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('ku').to_s).to eq('[{:ku=>"ku"@0}]')
 			expect(@string_input.parse('ke').to_s).to eq('[{:ke=>"ke"@0}]')
 			expect(@string_input.parse('ko').to_s).to eq('[{:ko=>"ko"@0}]')
+			expect(@string_input.parse('kya').to_s).to eq('[{:kya=>"kya"@0}]')
 		end
 	end
 
@@ -71,6 +72,7 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('gu').to_s).to eq('[{:gu=>"gu"@0}]')
 			expect(@string_input.parse('ge').to_s).to eq('[{:ge=>"ge"@0}]')
 			expect(@string_input.parse('go').to_s).to eq('[{:go=>"go"@0}]')
+			expect(@string_input.parse('gya').to_s).to eq('[{:gya=>"gya"@0}]')
 		end
 	end
 
@@ -81,6 +83,8 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('su').to_s).to eq('[{:su=>"su"@0}]')
 			expect(@string_input.parse('se').to_s).to eq('[{:se=>"se"@0}]')
 			expect(@string_input.parse('so').to_s).to eq('[{:so=>"so"@0}]')
+			expect(@string_input.parse('sha').to_s).to eq('[{:sha=>"sha"@0}]')
+			expect(@string_input.parse('shi').to_s).to eq('[{:shi=>"shi"@0}]')
 		end
 	end
 
@@ -101,6 +105,7 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('tu').to_s).to eq('[{:tsu=>"tu"@0}]')
 			expect(@string_input.parse('te').to_s).to eq('[{:te=>"te"@0}]')
 			expect(@string_input.parse('to').to_s).to eq('[{:to=>"to"@0}]')
+			expect(@string_input.parse('tsu').to_s).to eq('[{:tsu=>"tsu"@0}]')
 		end
 	end
 
@@ -111,6 +116,7 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('du').to_s).to eq('[{:dzu=>"du"@0}]')
 			expect(@string_input.parse('de').to_s).to eq('[{:de=>"de"@0}]')
 			expect(@string_input.parse('do').to_s).to eq('[{:ado=>"do"@0}]')
+			expect(@string_input.parse('dzu').to_s).to eq('[{:dzu=>"dzu"@0}]')
 		end
 	end
 
@@ -128,7 +134,7 @@ RSpec.describe "test single consonants" do
 		it "parses successfully" do
 			expect(@string_input.parse('ha').to_s).to eq('[{:ha=>"ha"@0}]')
 			expect(@string_input.parse('hi').to_s).to eq('[{:hi=>"hi"@0}]')
-			expect(@string_input.parse('hu').to_s).to eq('[{:hu=>"hu"@0}]')
+			expect(@string_input.parse('hu').to_s).to eq('[{:fu=>"hu"@0}]')
 			expect(@string_input.parse('he').to_s).to eq('[{:he=>"he"@0}]')
 			expect(@string_input.parse('ho').to_s).to eq('[{:ho=>"ho"@0}]')
 		end
@@ -191,6 +197,24 @@ RSpec.describe "test single consonants" do
 	context "double n" do
 		it "parses successfully" do
 			expect(@string_input.parse('nn').to_s).to eq('[{:nn=>"nn"@0}]')
+		end
+	end
+
+	context "c sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('chi').to_s).to eq('[{:chi=>"chi"@0}]')
+		end
+	end
+
+	context "f sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('fu').to_s).to eq('[{:fu=>"fu"@0}]')
+		end
+	end
+
+	context "small y sounds" do
+		it "parses successfully" do
+			expect(@string_input.parse('xya').to_s).to eq('[{:xya=>"xya"@0}]')
 		end
 	end
 end
