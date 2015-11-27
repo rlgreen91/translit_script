@@ -187,6 +187,12 @@ RSpec.describe "test single consonants" do
 			expect(@string_input.parse('jo').to_s).to eq('[{:jo=>"jo"@0}]')
 		end
 	end
+
+	context "double n" do
+		it "parses successfully" do
+			expect(@string_input.parse('nn').to_s).to eq('[{:nn=>"nn"@0}]')
+		end
+	end
 end
 
 #test for parsing words
@@ -201,6 +207,15 @@ RSpec.describe "test for complete words" do
 			expect(@string_input.parse('anata').to_s).to eq('[{:a=>"a"@0}, {:na=>"na"@1}, {:ta=>"ta"@3}]')
 			expect(@string_input.parse('oozei').to_s).to eq('[{:o=>"o"@0}, {:o=>"o"@1}, {:ze=>"ze"@2}, {:i=>"i"@4}]')
 			expect(@string_input.parse('jou').to_s).to eq('[{:jo=>"jo"@0}, {:u=>"u"@2}]')
+		end
+	end
+
+	context "complete words of two letter sounds and vowels including double n" do
+		it "parses successfully" do
+			expect(@string_input.parse('honnya').to_s).to eq('[{:ho=>"ho"@0}, {:nn=>"nn"@2}, {:ya=>"ya"@4}]')
+			expect(@string_input.parse('hanngaku').to_s).to eq('[{:ha=>"ha"@0}, {:nn=>"nn"@2}, {:ga=>"ga"@4}, {:ku=>"ku"@6}]')
+			expect(@string_input.parse('rinngo').to_s).to eq('[{:ri=>"ri"@0}, {:nn=>"nn"@2}, {:go=>"go"@4}]')
+			expect(@string_input.parse('banngou').to_s).to eq('[{:ba=>"ba"@0}, {:nn=>"nn"@2}, {:go=>"go"@4}, {:u=>"u"@6}]') 
 		end
 	end
 end

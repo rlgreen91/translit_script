@@ -136,11 +136,15 @@ class InputParser < Parslet::Parser
 	rule(:jo) { j >> o }
 	rule(:j_sounds) { ja.as(:ja) | ji.as(:ji) | ju.as(:ju) | jo.as(:jo) }
 
+	#check for double n
+	rule(:nn) { n >> n }
+	rule(:double_n) { nn.as(:nn) }
+
 	#check for sounds that consist of a single vowel
 	rule(:vowel) { ( a.as(:a) | i.as(:i) | u.as(:u) | e.as(:e) | o.as(:o) ).repeat(1) }
 
 	#check for sounds that begin with a consonant
-	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds | n_sounds | h_sounds | b_sounds | m_sounds | y_sounds | r_sounds | w_sounds | j_sounds).repeat(1)}
+	rule(:consonant) { ( k_sounds | g_sounds | s_sounds | z_sounds | t_sounds | d_sounds | n_sounds | h_sounds | b_sounds | m_sounds | y_sounds | r_sounds | w_sounds | j_sounds | double_n ).repeat(1)}
 
 	#Parse expression
 	#check for vowels, then consonants
